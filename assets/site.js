@@ -50,8 +50,6 @@ function renderDocuments() {
       else state.selected.delete(doc.id);
       refreshSelection();
     });
-    const icon = element("span", "document-icon", "PDF");
-    icon.setAttribute("aria-hidden", "true");
     const info = element("div", "document-info");
     const label = element("label", "", doc.title);
     label.htmlFor = input.id;
@@ -70,7 +68,7 @@ function renderDocuments() {
     download.download = doc.path.split("/").pop();
     download.setAttribute("aria-label", doc.title + " PDF 다운로드");
     actions.append(preview, download);
-    card.append(input, icon, info, actions);
+    card.append(input, info, actions);
     list.append(card);
   }
   state.selected = new Set(state.documents.map((doc) => doc.id));

@@ -3,83 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0e1e30">
-  <meta name="description" content="최신 이력서와 프로젝트 기술 포트폴리오를 확인하고 원하는 문서를 다운로드하세요.">
-  <title>지원 서류 | 신지섭</title>
+  <meta name="description" content="이력서와 포트폴리오 PDF 다운로드">
+  <title>지원 서류</title>
   <link rel="stylesheet" href="./assets/site.css">
   <script src="./assets/site.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#documents">문서 목록으로 이동</a>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="./" aria-label="지원 서류 홈">
-        <span class="brand-mark" aria-hidden="true">S</span>
-        <span>신지섭 <span class="brand-separator">/</span> DOCUMENTS</span>
-      </a>
-      <span class="topbar-label">LATEST PUBLICATION</span>
-    </div>
-  </header>
-  <main class="container">
-    <section class="hero" aria-labelledby="page-title">
-      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> 항상 최신 버전</p>
-      <h1 id="page-title">지원 서류 <span>다운로드</span></h1>
-      <p class="hero-description">이력서와 기술 포트폴리오를 한곳에서 확인할 수 있습니다. 모든 문서를 한 번에 받거나, 필요한 문서만 선택해서 내려받으세요.</p>
-      <div class="hero-meta">
-        <span id="updated-at">최근 배포 정보 확인 중</span>
-        <span aria-hidden="true">·</span>
-        <span id="document-total">문서 목록 불러오는 중</span>
-      </div>
+  <main>
+    <header>
+      <h1>지원 서류</h1>
+      <p>이력서와 포트폴리오를 다운로드할 수 있습니다.</p>
+      <p class="metadata">
+        <span id="updated-at">배포 정보 확인 중</span>
+        · <span id="document-total">문서 목록 불러오는 중</span>
+      </p>
+    </header>
+
+    <section aria-labelledby="all-title">
+      <h2 id="all-title">전체 다운로드</h2>
+      <p>
+        <a id="download-all" class="disabled" href="./application.zip"
+           download="application.zip" aria-disabled="true" tabindex="-1">전체 ZIP 다운로드</a>
+      </p>
     </section>
 
-    <section class="download-panel" aria-labelledby="all-title">
-      <div>
-        <p class="panel-eyebrow">COMPLETE PACKAGE</p>
-        <h2 id="all-title">전체 지원 서류</h2>
-        <p>현재 공개된 문서를 하나의 ZIP 파일로 다운로드합니다.</p>
-      </div>
-      <a id="download-all" class="button button-primary disabled" href="./application.zip" download="application.zip" aria-disabled="true" tabindex="-1">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg>
-        전체 ZIP 다운로드
-      </a>
-    </section>
-
-    <section class="document-section" id="documents" aria-labelledby="documents-title">
-      <div class="section-heading">
-        <div>
-          <p class="section-eyebrow">DOCUMENT LIBRARY</p>
-          <h2 id="documents-title">필요한 문서 선택</h2>
-          <p class="section-description">체크한 문서만 새로운 ZIP 파일로 묶거나, 각 PDF를 별도로 다운로드할 수 있습니다.</p>
-        </div>
-        <div class="selection-actions">
-          <button type="button" class="text-button" id="select-all" disabled>전체 선택</button>
-          <span aria-hidden="true" class="selection-separator">/</span>
-          <button type="button" class="text-button" id="clear-selection" disabled>선택 해제</button>
-        </div>
-      </div>
+    <section id="documents" aria-labelledby="documents-title">
+      <h2 id="documents-title">개별 및 선택 다운로드</h2>
+      <p>문서를 선택한 후 ZIP으로 받거나, 각 PDF를 개별 다운로드할 수 있습니다.</p>
+      <p class="selection-actions">
+        <button type="button" id="select-all" disabled>전체 선택</button>
+        <button type="button" id="clear-selection" disabled>선택 해제</button>
+      </p>
 
       <p id="status" role="status" aria-live="polite">문서 목록을 불러오고 있습니다.</p>
-      <div class="document-list" id="document-list" aria-label="다운로드 가능한 문서"></div>
+      <div id="document-list" aria-label="다운로드 가능한 문서"></div>
 
-      <div class="selection-footer">
-        <div>
-          <strong id="selected-count">0개 선택</strong>
-          <p>선택된 PDF만 ZIP으로 묶어 다운로드합니다.</p>
-        </div>
-        <button id="download-selected" type="button" class="button button-secondary" disabled>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg>
-          선택 문서 ZIP 다운로드
-        </button>
-      </div>
+      <p class="selection-footer">
+        <span id="selected-count">0개 선택</span>
+        <button id="download-selected" type="button" disabled>선택 문서 ZIP 다운로드</button>
+      </p>
     </section>
-    <p class="note">이 페이지는 공개된 서류만 제공합니다. 문서 구성 및 내용은 새 버전 배포 시 갱신되며, 공유 주소는 변경되지 않습니다.</p>
   </main>
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> 신지섭 · 지원 서류</span>
-      <span>Published with GitHub Pages</span>
-    </div>
-  </footer>
-  <noscript><p class="noscript">문서 선택 ZIP 다운로드에는 JavaScript가 필요합니다. 전체 ZIP은 <a href="./application.zip">여기에서</a> 받을 수 있습니다.</p></noscript>
+  <footer><small>© <span id="year"></span></small></footer>
+  <noscript>
+    <p>문서 선택 기능은 JavaScript가 필요합니다.
+      <a href="./application.zip" download>전체 ZIP 다운로드</a>를 이용해 주세요.</p>
+  </noscript>
 </body>
 </html>
