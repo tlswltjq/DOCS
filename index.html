@@ -3,329 +3,209 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="이력서와 포트폴리오 문서 다운로드">
-  <title>지원 서류 다운로드</title>
+  <meta name="description" content="이력서와 포트폴리오 PDF 및 전체 ZIP 다운로드">
+  <title>지원 서류</title>
   <style>
     :root {
-        color-scheme: light;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-        color: #222;
-        background: #fff;
-      }
-      * { box-sizing: border-box; }
-      body { margin: 0; font-size: 15px; line-height: 1.6; }
-      main { width: min(100% - 40px, 720px); margin: 76px auto 64px; }
-      header { text-align: center; margin-bottom: 50px; }
-      h1 { font-size: 28px; font-weight: 650; letter-spacing: -.035em; margin: 0 0 8px; }
-      h2 { font-size: 17px; font-weight: 650; margin: 0 0 10px; }
-      p { margin: 7px 0; color: #555; }
-      a { color: inherit; text-underline-offset: 3px; }
-      a:hover { color: #000; }
-      button { font: inherit; cursor: pointer; padding: 6px 10px; border: 1px solid #bbb; border-radius: 3px; background: #fff; color: #222; }
-      button:hover:not(:disabled) { background: #f5f5f5; }
-      button:disabled { opacity: .45; cursor: not-allowed; }
-      :focus-visible { outline: 2px solid #333; outline-offset: 3px; }
-      .meta, footer { color: #777; font-size: 12px; }
-      .meta { margin-top: 15px; }
-      section { border-top: 1px solid #ddd; padding: 25px 0; }
-      .full-download { margin-top: 16px; }
-      .download-link { display: inline-block; text-decoration: none; border: 1px solid #444; border-radius: 3px; padding: 9px 14px; font-weight: 600; }
-      .disabled { opacity: .4; pointer-events: none; }
-      .section-description { font-size: 13px; }
-      .selection-actions { display: flex; gap: 8px; margin: 18px 0 4px; }
-      #status { font-size: 13px; }
-      #status:empty { display: none; }
-      #status.error { color: #a00; }
-      .document-card { display: flex; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid #e8e8e8; }
-      .document-card input[type="checkbox"] { margin: 0; flex: none; width: 16px; height: 16px; }
-      .document-info { flex: 1; min-width: 0; }
-      .document-info label { display: block; font-weight: 600; cursor: pointer; }
-      .document-info p { font-size: 13px; margin: 2px 0; }
-      .document-info small { display: block; color: #777; font-size: 12px; }
-      .document-actions { display: flex; gap: 12px; flex: none; font-size: 13px; }
-      .selection-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 20px; font-size: 13px; }
-      footer { text-align: center; margin-top: 24px; }
-      .skip { position: absolute; left: -9999px; }
-      .skip:focus { left: 12px; top: 12px; background: #fff; }
-      @media (max-width: 560px) {
-        main { margin-top: 45px; }
-        header { margin-bottom: 38px; }
-        .document-card { flex-wrap: wrap; align-items: flex-start; }
-        .document-card input[type="checkbox"] { margin-top: 5px; }
-        .document-info { min-width: calc(100% - 32px); }
-        .document-actions { width: 100%; padding-left: 28px; }
-        .selection-footer { flex-wrap: wrap; }
-      }
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      color: #202124;
+      background: #fff;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-size: 14px; line-height: 1.6; }
+    main { max-width: 720px; padding: 0 24px; margin: 72px auto 64px; }
+    h1, h2, p { margin: 0; }
+    h1 { font-size: 28px; font-weight: 700; line-height: 1.3; letter-spacing: -.035em; }
+    h2 { font-size: 16px; font-weight: 650; line-height: 1.4; }
+    header { margin-bottom: 36px; }
+    .intro { margin-top: 9px; color: #555; }
+    .meta { margin-top: 12px; font-size: 12px; color: #777; }
+    section { border-top: 1px solid #dedede; padding: 24px 0 30px; }
+    .bundle-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .section-note { margin-top: 7px; font-size: 13px; color: #777; }
+    a { color: inherit; text-underline-offset: 3px; }
+    a:hover { color: #000; }
+    a:focus-visible { outline: 2px solid #333; outline-offset: 4px; }
+    .zip-link {
+      flex: none;
+      display: inline-block;
+      padding: 7px 13px;
+      border: 1px solid #777;
+      border-radius: 3px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .zip-link:hover { background: #f5f5f5; }
+    .document-list { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid #ededed; }
+    .document-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 17px 0;
+      border-bottom: 1px solid #ededed;
+    }
+    .document-info { min-width: 0; }
+    .document-title { font-size: 14px; font-weight: 650; }
+    .document-description { margin-top: 3px; font-size: 13px; color: #666; }
+    .document-meta { margin-top: 4px; font-size: 12px; color: #888; }
+    .document-download { flex: none; font-size: 13px; white-space: nowrap; }
+    .status { margin-top: 14px; font-size: 12px; color: #a00; }
+    .status:empty { display: none; }
+    .skip { position: absolute; left: -9999px; }
+    .skip:focus { left: 12px; top: 12px; z-index: 1; padding: 6px; background: #fff; }
+    @media (max-width: 520px) {
+      main { margin-top: 44px; padding: 0 20px; }
+      header { margin-bottom: 30px; }
+      h1 { font-size: 26px; }
+      .bundle-row { gap: 10px; }
+      .zip-link { padding: 7px 10px; font-size: 12px; }
+      .document-item { align-items: flex-start; gap: 12px; }
+      .document-download { padding-top: 2px; }
+    }
   </style>
 </head>
 <body>
   <a class="skip" href="#documents">문서 목록으로 이동</a>
   <main>
     <header>
-      <h1>지원 서류 다운로드</h1>
-      <p>이력서와 포트폴리오를 확인하고 내려받을 수 있습니다.</p>
-      <p class="meta"><span id="updated-at">배포 정보 확인 중</span> · <span id="document-total">문서 목록 불러오는 중</span></p>
+      <h1>지원 서류</h1>
+      <p class="intro">이력서 및 포트폴리오 다운로드</p>
+      <p class="meta"><span id="updated-at">최종 업데이트: 2026.10.30</span> · <span id="document-total">PDF 3개</span></p>
     </header>
 
     <section aria-labelledby="all-title">
-      <h2 id="all-title">전체 다운로드</h2>
-      <p>현재 공개된 모든 문서를 ZIP 파일 하나로 받을 수 있습니다.</p>
-      <p class="full-download">
-        <a id="download-all" class="download-link disabled" href="./application.zip" download="application.zip" aria-disabled="true" tabindex="-1">전체 문서 ZIP 다운로드</a>
-      </p>
+      <div class="bundle-row">
+        <h2 id="all-title">전체 다운로드</h2>
+        <a id="download-all" class="zip-link" href="./application.zip" download="application.zip">전체 ZIP 다운로드</a>
+      </div>
     </section>
 
     <section id="documents" aria-labelledby="documents-title">
-      <h2 id="documents-title">문서 목록</h2>
-      <p class="section-description">개별 PDF를 내려받거나 필요한 문서만 선택해 ZIP 파일로 받을 수 있습니다.</p>
-      <div class="selection-actions">
-        <button type="button" id="select-all" disabled>전체 선택</button>
-        <button type="button" id="clear-selection" disabled>선택 해제</button>
-      </div>
-      <p id="status" role="status" aria-live="polite">문서 목록을 불러오고 있습니다.</p>
-      <div id="document-list" aria-label="다운로드 가능한 문서"></div>
-      <div class="selection-footer">
-        <span id="selected-count">0개 선택</span>
-        <button id="download-selected" type="button" disabled>선택 문서 ZIP 다운로드</button>
-      </div>
+      <h2 id="documents-title">개별 다운로드</h2>
+      <p class="section-note">파일명을 클릭하면 PDF가 새 탭에서 열립니다.</p>
+      <ul id="document-list" class="document-list" aria-label="다운로드 가능한 문서">
+        <li class="document-item">
+          <div class="document-info">
+            <a class="document-title" href="./resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="이력서 PDF 미리보기 (새 탭)">이력서</a>
+            <p class="document-description">지원자의 핵심 경력과 기술을 정리한 이력서</p>
+            <p class="document-meta">PDF · 119 KB</p>
+          </div>
+          <a class="document-download" href="./resume.pdf" download="resume.pdf" aria-label="이력서 PDF 다운로드">다운로드</a>
+        </li>
+        <li class="document-item">
+          <div class="document-info">
+            <a class="document-title" href="./files/portfolio-backend-16x9.pdf" target="_blank" rel="noopener noreferrer" aria-label="백엔드 기술 포트폴리오 PDF 미리보기 (새 탭)">백엔드 기술 포트폴리오</a>
+            <p class="document-description">서버 개발 경험과 주요 기술적 의사결정</p>
+            <p class="document-meta">PDF · 289 KB</p>
+          </div>
+          <a class="document-download" href="./files/portfolio-backend-16x9.pdf" download="portfolio-backend-16x9.pdf" aria-label="백엔드 기술 포트폴리오 PDF 다운로드">다운로드</a>
+        </li>
+        <li class="document-item">
+          <div class="document-info">
+            <a class="document-title" href="./files/portfolio-esd-16x9.pdf" target="_blank" rel="noopener noreferrer" aria-label="ESD 프로젝트 포트폴리오 PDF 미리보기 (새 탭)">ESD 프로젝트 포트폴리오</a>
+            <p class="document-description">문제 해결 과정과 설계·구현 상세</p>
+            <p class="document-meta">PDF · 289 KB</p>
+          </div>
+          <a class="document-download" href="./files/portfolio-esd-16x9.pdf" download="portfolio-esd-16x9.pdf" aria-label="ESD 프로젝트 포트폴리오 PDF 다운로드">다운로드</a>
+        </li>
+      </ul>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
     </section>
-    <footer>© <span id="year"></span></footer>
   </main>
-  <noscript>
-    <p style="text-align:center">선택 다운로드에는 JavaScript가 필요합니다. <a href="./application.zip" download>전체 ZIP 다운로드</a>를 이용해 주세요.</p>
-  </noscript>
   <script>
-"use strict";
+    "use strict";
+    const base = new URL("./", document.baseURI);
+    const byId = (id) => document.getElementById(id);
 
-const $ = (id) => document.getElementById(id);
-const base = new URL("./", document.baseURI);
-const state = { documents: [], selected: new Set(), busy: false };
-
-function formatSize(bytes) {
-  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(0) + " KB";
-  return (bytes / (1024 * 1024)).toFixed(1) + " MB";
-}
-function fileURL(path) {
-  if (!/^(resume\.pdf|files\/[A-Za-z0-9._-]+\.pdf|application\.zip)$/.test(path)) {
-    throw new Error("올바르지 않은 문서 경로입니다.");
-  }
-  return new URL(path, base).href;
-}
-function setStatus(message, error = false) {
-  $("status").textContent = message;
-  $("status").classList.toggle("error", error);
-}
-function refreshSelection() {
-  const count = state.selected.size;
-  $("selected-count").textContent = count + "개 선택";
-  $("download-selected").disabled = count === 0 || state.busy;
-  $("select-all").disabled = state.busy;
-  $("clear-selection").disabled = state.busy;
-  document.querySelectorAll(".document-card input[type=checkbox]").forEach((input) => {
-    input.disabled = state.busy;
-    input.checked = state.selected.has(input.value);
-  });
-}
-function element(tag, cls, content) {
-  const item = document.createElement(tag);
-  if (cls) item.className = cls;
-  if (content !== undefined) item.textContent = content;
-  return item;
-}
-function renderDocuments() {
-  const list = $("document-list");
-  list.replaceChildren();
-  for (const doc of state.documents) {
-    const card = element("article", "document-card");
-    const input = element("input");
-    input.type = "checkbox";
-    input.id = "doc-" + doc.id;
-    input.value = doc.id;
-    input.checked = true;
-    input.addEventListener("change", () => {
-      if (input.checked) state.selected.add(doc.id);
-      else state.selected.delete(doc.id);
-      refreshSelection();
-    });
-    const info = element("div", "document-info");
-    const label = element("label", "", doc.title);
-    label.htmlFor = input.id;
-    const description = element("p", "", doc.description || "PDF 문서");
-    const meta = element("small", "", formatSize(doc.size_bytes));
-    info.append(label, description, meta);
-
-    const actions = element("div", "document-actions");
-    const preview = element("a", "", "미리보기");
-    preview.href = fileURL(doc.path);
-    preview.target = "_blank";
-    preview.rel = "noopener noreferrer";
-    preview.setAttribute("aria-label", doc.title + " 미리보기");
-    const download = element("a", "", "PDF 다운로드");
-    download.href = fileURL(doc.path);
-    download.download = doc.path.split("/").pop();
-    download.setAttribute("aria-label", doc.title + " PDF 다운로드");
-    actions.append(preview, download);
-    card.append(input, info, actions);
-    list.append(card);
-  }
-  state.selected = new Set(state.documents.map((doc) => doc.id));
-  refreshSelection();
-}
-function crc32(data) {
-  let crc = 0xffffffff;
-  for (let i = 0; i < data.length; i++) {
-    crc ^= data[i];
-    for (let b = 0; b < 8; b++) {
-      crc = (crc >>> 1) ^ ((crc & 1) ? 0xedb88320 : 0);
+    function fileURL(path) {
+      if (!/^(resume\.pdf|files\/[A-Za-z0-9._-]+\.pdf|application\.zip)$/.test(path)) {
+        throw new Error("올바르지 않은 문서 경로입니다.");
+      }
+      return new URL(path, base).href;
     }
-  }
-  return (crc ^ 0xffffffff) >>> 0;
-}
-function generateZip(files) {
-  if (!files.length || files.length > 65535) throw new Error("ZIP 문서 수가 올바르지 않습니다.");
-  const encoder = new TextEncoder();
-  const chunks = [];
-  const central = [];
-  let offset = 0;
-  for (const file of files) {
-    const name = encoder.encode(file.name);
-    const data = file.bytes;
-    if (data.length > 0xffffffff || offset > 0xffffffff || name.length > 65535) {
-      throw new Error("ZIP 크기 제한을 초과했습니다.");
-    }
-    const checksum = crc32(data);
-    const header = new Uint8Array(30 + name.length);
-    const local = new DataView(header.buffer);
-    local.setUint32(0, 0x04034b50, true);
-    local.setUint16(4, 20, true);
-    local.setUint16(6, 0x0800, true); // UTF-8 filenames
-    local.setUint16(8, 0, true); // store: PDFs are already compressed
-    local.setUint16(10, 0, true);
-    local.setUint16(12, 33, true); // 1980-01-01
-    local.setUint32(14, checksum, true);
-    local.setUint32(18, data.length, true);
-    local.setUint32(22, data.length, true);
-    local.setUint16(26, name.length, true);
-    header.set(name, 30);
-    chunks.push(header, data);
 
-    const record = new Uint8Array(46 + name.length);
-    const dir = new DataView(record.buffer);
-    dir.setUint32(0, 0x02014b50, true);
-    dir.setUint16(4, 20, true);
-    dir.setUint16(6, 20, true);
-    dir.setUint16(8, 0x0800, true);
-    dir.setUint16(10, 0, true);
-    dir.setUint16(12, 0, true);
-    dir.setUint16(14, 33, true);
-    dir.setUint32(16, checksum, true);
-    dir.setUint32(20, data.length, true);
-    dir.setUint32(24, data.length, true);
-    dir.setUint16(28, name.length, true);
-    dir.setUint32(42, offset, true);
-    record.set(name, 46);
-    central.push(record);
-    offset += header.length + data.length;
-  }
-  const centralSize = central.reduce((sum, item) => sum + item.length, 0);
-  if (offset + centralSize > 0xffffffff) throw new Error("ZIP 크기 제한을 초과했습니다.");
-  const end = new Uint8Array(22);
-  const view = new DataView(end.buffer);
-  view.setUint32(0, 0x06054b50, true);
-  view.setUint16(8, files.length, true);
-  view.setUint16(10, files.length, true);
-  view.setUint32(12, centralSize, true);
-  view.setUint32(16, offset, true);
-  return new Blob([...chunks, ...central, end], { type: "application/zip" });
-}
-async function readVerifiedDocument(doc) {
-  const response = await fetch(fileURL(doc.path), { cache: "no-store" });
-  if (!response.ok) throw new Error(doc.title + " 파일을 가져올 수 없습니다.");
-  const bytes = new Uint8Array(await response.arrayBuffer());
-  if (bytes.length !== doc.size_bytes || bytes[0] !== 37 || bytes[1] !== 80 ||
-      bytes[2] !== 68 || bytes[3] !== 70 || bytes[4] !== 45) {
-    throw new Error(doc.title + " 파일의 크기 또는 형식이 올바르지 않습니다.");
-  }
-  if (globalThis.crypto && crypto.subtle) {
-    const digest = new Uint8Array(await crypto.subtle.digest("SHA-256", bytes));
-    const hex = Array.from(digest, (byte) => byte.toString(16).padStart(2, "0")).join("");
-    if (hex !== doc.sha256) throw new Error(doc.title + " 무결성 검증에 실패했습니다. 새로고침 후 다시 시도하세요.");
-  }
-  return { name: doc.path, bytes };
-}
-async function downloadSelected() {
-  const selected = state.documents.filter((doc) => state.selected.has(doc.id));
-  if (!selected.length || state.busy) return;
-  state.busy = true;
-  refreshSelection();
-  setStatus("선택한 문서를 확인하고 ZIP을 생성하는 중입니다.");
-  try {
-    const files = await Promise.all(selected.map(readVerifiedDocument));
-    const blob = generateZip(files);
-    const objectURL = URL.createObjectURL(blob);
-    const link = element("a");
-    link.href = objectURL;
-    link.download = "selected-documents.zip";
-    document.body.append(link);
-    link.click();
-    link.remove();
-    window.setTimeout(() => URL.revokeObjectURL(objectURL), 60000);
-    setStatus(selected.length + "개 문서를 ZIP으로 생성했습니다.");
-  } catch (error) {
-    console.error(error);
-    setStatus(error.message || "다운로드에 실패했습니다.", true);
-  } finally {
-    state.busy = false;
-    refreshSelection();
-  }
-}
-async function initialize() {
-  $("year").textContent = new Date().getFullYear();
-  $("select-all").addEventListener("click", () => {
-    state.selected = new Set(state.documents.map((doc) => doc.id));
-    refreshSelection();
-  });
-  $("clear-selection").addEventListener("click", () => {
-    state.selected.clear();
-    refreshSelection();
-  });
-  $("download-selected").addEventListener("click", downloadSelected);
-  try {
-    const response = await fetch(new URL("manifest.json", base), { cache: "no-store" });
-    if (!response.ok) throw new Error("첫 문서 배포를 준비 중입니다. 이후 다시 접속해 주세요.");
-    const manifest = await response.json();
-    if (manifest.schema_version !== 1 || !Array.isArray(manifest.documents) ||
-        !manifest.documents.length || manifest.bundle?.path !== "application.zip") {
-      throw new Error("문서 목록 형식이 올바르지 않습니다.");
+    function formatSize(bytes) {
+      return bytes < 1024 * 1024
+        ? Math.round(bytes / 1024) + " KB"
+        : (bytes / (1024 * 1024)).toFixed(1) + " MB";
     }
-    for (const doc of manifest.documents) {
-      fileURL(doc.path);
-      if (typeof doc.id !== "string" || typeof doc.title !== "string" ||
-          !Number.isSafeInteger(doc.size_bytes) || doc.size_bytes < 1 ||
-          !/^[a-f0-9]{64}$/.test(doc.sha256)) {
-        throw new Error("문서 목록 데이터가 올바르지 않습니다.");
+
+    function renderDocuments(documents) {
+      const list = document.createDocumentFragment();
+      for (const doc of documents) {
+        const item = document.createElement("li");
+        item.className = "document-item";
+        const info = document.createElement("div");
+        info.className = "document-info";
+
+        const title = document.createElement("a");
+        title.className = "document-title";
+        title.textContent = doc.title;
+        title.href = fileURL(doc.path);
+        title.target = "_blank";
+        title.rel = "noopener noreferrer";
+        title.setAttribute("aria-label", doc.title + " PDF 미리보기 (새 탭)");
+
+        const description = document.createElement("p");
+        description.className = "document-description";
+        description.textContent = doc.description || "PDF 문서";
+
+        const meta = document.createElement("p");
+        meta.className = "document-meta";
+        meta.textContent = "PDF · " + formatSize(doc.size_bytes);
+
+        const download = document.createElement("a");
+        download.className = "document-download";
+        download.textContent = "다운로드";
+        download.href = fileURL(doc.path);
+        download.download = doc.path.split("/").pop();
+        download.setAttribute("aria-label", doc.title + " PDF 다운로드");
+
+        info.append(title, description, meta);
+        item.append(info, download);
+        list.append(item);
+      }
+      byId("document-list").replaceChildren(list);
+    }
+
+    async function initialize() {
+      try {
+        const response = await fetch(new URL("manifest.json", base), { cache: "no-store" });
+        if (!response.ok) throw new Error("최신 목록을 불러오지 못했습니다.");
+        const manifest = await response.json();
+        if (manifest.schema_version !== 1 || !Array.isArray(manifest.documents) ||
+            !manifest.documents.length || manifest.bundle?.path !== "application.zip") {
+          throw new Error("문서 목록 형식이 올바르지 않습니다.");
+        }
+        for (const doc of manifest.documents) {
+          fileURL(doc.path);
+          if (typeof doc.title !== "string" || !doc.title ||
+              !Number.isSafeInteger(doc.size_bytes) || doc.size_bytes < 1 ||
+              (doc.description !== undefined && typeof doc.description !== "string")) {
+            throw new Error("문서 목록 데이터가 올바르지 않습니다.");
+          }
+        }
+
+        renderDocuments(manifest.documents);
+        byId("download-all").href = fileURL(manifest.bundle.path);
+        byId("document-total").textContent = "PDF " + manifest.documents.length + "개";
+        const date = new Date(manifest.updated_at);
+        if (!Number.isNaN(date.getTime())) {
+          const formatted = new Intl.DateTimeFormat("ko-KR", {
+            year: "numeric", month: "2-digit", day: "2-digit", timeZone: "Asia/Seoul"
+          }).format(date);
+          byId("updated-at").textContent = "최종 업데이트: " + formatted;
+        }
+      } catch (error) {
+        console.error(error);
+        byId("status").textContent = "최신 문서 목록을 확인할 수 없어 기본 다운로드 링크를 표시합니다.";
       }
     }
-    state.documents = manifest.documents;
-    renderDocuments();
-    const date = new Date(manifest.updated_at);
-    $("updated-at").textContent = Number.isNaN(date.getTime()) ?
-      "최근 배포됨" : "업데이트: " + new Intl.DateTimeFormat("ko-KR", { dateStyle: "medium", timeZone: "Asia/Seoul" }).format(date);
-    $("document-total").textContent = "PDF " + state.documents.length + "개";
-    const all = $("download-all");
-    all.href = fileURL(manifest.bundle.path);
-    all.classList.remove("disabled");
-    all.removeAttribute("aria-disabled");
-    all.removeAttribute("tabindex");
-    setStatus("");
-  } catch (error) {
-    console.error(error);
-    setStatus(error.message || "문서 목록을 불러오지 못했습니다.", true);
-    $("updated-at").textContent = "배포 준비 중";
-    $("document-total").textContent = "목록을 확인할 수 없음";
-  }
-}
-initialize();
+    initialize();
   </script>
 </body>
 </html>
