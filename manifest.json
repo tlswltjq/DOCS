@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-30T10:51:19+00:00",
+  "documents": [
+    {
+      "id": "resume",
+      "title": "이력서",
+      "description": "지원자의 핵심 경력과 기술을 정리한 이력서",
+      "path": "resume.pdf",
+      "size_bytes": 121462,
+      "sha256": "293b8d31080ad25d97f207704a91096c322a636df9ff37ca07c8d48e6d9436ad"
+    },
+    {
+      "id": "backend",
+      "title": "백엔드 기술 포트폴리오",
+      "description": "서버 개발 경험과 주요 기술적 의사결정",
+      "path": "files/portfolio-backend-16x9.pdf",
+      "size_bytes": 295942,
+      "sha256": "7e3b4b69ffa2892dfe40ae6ec5acb2d704286436c1165f3bd8488180a3547354"
+    },
+    {
+      "id": "esd",
+      "title": "ESD 프로젝트 포트폴리오",
+      "description": "문제 해결 과정과 설계·구현 상세",
+      "path": "files/portfolio-esd-16x9.pdf",
+      "size_bytes": 296421,
+      "sha256": "f900ab47179a9bb311769364155495299bb15299c58502cbc554c604b08f12da"
+    }
+  ],
+  "bundle": {
+    "path": "application.zip",
+    "size_bytes": 487503,
+    "sha256": "2ff30c13cd0776be89f4ce091b80ac1a7f77d31552fc916c44930bcc8367dd7f"
+  }
+}
