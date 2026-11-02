@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-30T10:51:19+00:00",
+  "updated_at": "2026-11-02T00:28:48+00:00",
   "documents": [
     {
       "id": "resume",
       "title": "이력서",
       "description": "지원자의 핵심 경력과 기술을 정리한 이력서",
       "path": "resume.pdf",
-      "size_bytes": 121462,
-      "sha256": "293b8d31080ad25d97f207704a91096c322a636df9ff37ca07c8d48e6d9436ad"
+      "size_bytes": 121540,
+      "sha256": "05bbe26b84b37528256415776878f0ff1566d599ff286828a6543d54ec102f4c"
     },
     {
       "id": "backend",
@@ -29,7 +29,7 @@
   ],
   "bundle": {
     "path": "application.zip",
-    "size_bytes": 487503,
-    "sha256": "2ff30c13cd0776be89f4ce091b80ac1a7f77d31552fc916c44930bcc8367dd7f"
+    "size_bytes": 486821,
+    "sha256": "01ba5d7d94c6149d237f5f922c5930805bda2a063b15d72706ade9a71cf61ef7"
   }
 }
