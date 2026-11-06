@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-02T09:42:37+00:00",
+  "updated_at": "2026-11-06T10:47:04+00:00",
   "documents": [
     {
       "id": "resume",
       "title": "이력서",
       "description": "지원자의 핵심 경력과 기술을 정리한 이력서",
       "path": "resume.pdf",
-      "size_bytes": 118324,
-      "sha256": "7a73df0dd52799874782695c6b46c8d0078b61296accabf75d1f5471dc39b666"
+      "size_bytes": 136330,
+      "sha256": "ac2f8da264a1a3068d7255e128f0f8bf7506292854fe9b950ad983f5ede3e48a"
     },
     {
       "id": "backend",
       "title": "백엔드 기술 포트폴리오",
       "description": "서버 개발 경험과 주요 기술적 의사결정",
       "path": "files/portfolio-backend-16x9.pdf",
-      "size_bytes": 295942,
-      "sha256": "7e3b4b69ffa2892dfe40ae6ec5acb2d704286436c1165f3bd8488180a3547354"
+      "size_bytes": 313428,
+      "sha256": "30df74b8e241cecf3c062a9b380fc970663b4387e3357a00dc0e73c5afd061e2"
     },
     {
       "id": "esd",
@@ -29,7 +29,7 @@
   ],
   "bundle": {
     "path": "application.zip",
-    "size_bytes": 483801,
-    "sha256": "3e8c13e1d8d5b880b808aa1b2850500809c156d3c17008d1b700efe1a9ca2599"
+    "size_bytes": 505178,
+    "sha256": "435dc68b73ca6084048c7e631b1b8c512a4c3b98afb81f15cd3eb66cdf97d0f0"
   }
 }
