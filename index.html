@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="이력서와 포트폴리오 PDF 및 전체 ZIP 다운로드">
-  <title>지원 서류</title>
+  <meta name="description" content="이력서 PDF 미리보기와 다운로드">
+  <title>이력서</title>
   <style>
     :root {
       color-scheme: light;
@@ -22,23 +22,10 @@
     .intro { margin-top: 9px; color: #555; }
     .meta { margin-top: 12px; font-size: 12px; color: #777; }
     section { border-top: 1px solid #dedede; padding: 24px 0 30px; }
-    .bundle-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
     .section-note { margin-top: 7px; font-size: 13px; color: #777; }
     a { color: inherit; text-underline-offset: 3px; }
     a:hover { color: #000; }
     a:focus-visible { outline: 2px solid #333; outline-offset: 4px; }
-    .zip-link {
-      flex: none;
-      display: inline-block;
-      padding: 7px 13px;
-      border: 1px solid #777;
-      border-radius: 3px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 13px;
-      white-space: nowrap;
-    }
-    .zip-link:hover { background: #f5f5f5; }
     .document-list { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid #ededed; }
     .document-item {
       display: flex;
@@ -53,159 +40,49 @@
     .document-description { margin-top: 3px; font-size: 13px; color: #666; }
     .document-meta { margin-top: 4px; font-size: 12px; color: #888; }
     .document-download { flex: none; font-size: 13px; white-space: nowrap; }
-    .status { margin-top: 14px; font-size: 12px; color: #a00; }
-    .status:empty { display: none; }
     .skip { position: absolute; left: -9999px; }
     .skip:focus { left: 12px; top: 12px; z-index: 1; padding: 6px; background: #fff; }
+    .viewer { margin-top: 20px; border: 1px solid #dedede; border-radius: 3px; overflow: hidden; background: #f5f5f5; }
+    .viewer object { display: block; width: 100%; height: 1000px; }
+    .viewer-fallback { padding: 24px; font-size: 13px; color: #666; }
     @media (max-width: 520px) {
       main { margin-top: 44px; padding: 0 20px; }
       header { margin-bottom: 30px; }
       h1 { font-size: 26px; }
-      .bundle-row { gap: 10px; }
-      .zip-link { padding: 7px 10px; font-size: 12px; }
       .document-item { align-items: flex-start; gap: 12px; }
       .document-download { padding-top: 2px; }
+      .viewer object { height: 560px; }
     }
   </style>
 </head>
 <body>
-  <a class="skip" href="#documents">문서 목록으로 이동</a>
+  <a class="skip" href="#documents">문서로 이동</a>
   <main>
     <header>
-      <h1>지원 서류</h1>
-      <p class="intro">이력서 및 포트폴리오 다운로드</p>
-      <p class="meta"><span id="updated-at">최종 업데이트: 2026.10.30</span> · <span id="document-total">PDF 3개</span></p>
+      <h1>이력서</h1>
+      <p class="intro">이력서 미리보기 및 다운로드</p>
+      <p class="meta">최종 업데이트: 2026.11.19 · PDF 1개</p>
     </header>
 
-    <section aria-labelledby="all-title">
-      <div class="bundle-row">
-        <h2 id="all-title">전체 다운로드</h2>
-        <a id="download-all" class="zip-link" href="./application.zip" download="application.zip">전체 ZIP 다운로드</a>
-      </div>
-    </section>
-
     <section id="documents" aria-labelledby="documents-title">
-      <h2 id="documents-title">개별 다운로드</h2>
+      <h2 id="documents-title">이력서</h2>
       <p class="section-note">파일명을 클릭하면 PDF가 새 탭에서 열립니다.</p>
-      <ul id="document-list" class="document-list" aria-label="다운로드 가능한 문서">
+      <ul class="document-list" aria-label="다운로드 가능한 문서">
         <li class="document-item">
           <div class="document-info">
             <a class="document-title" href="./resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="이력서 PDF 미리보기 (새 탭)">이력서</a>
-            <p class="document-description">지원자의 핵심 경력과 기술을 정리한 이력서</p>
-            <p class="document-meta">PDF · 119 KB</p>
+            <p class="document-description">백엔드 개발자 이력서</p>
+            <p class="document-meta">PDF · 86 KB</p>
           </div>
           <a class="document-download" href="./resume.pdf" download="resume.pdf" aria-label="이력서 PDF 다운로드">다운로드</a>
         </li>
-        <li class="document-item">
-          <div class="document-info">
-            <a class="document-title" href="./files/portfolio-backend-16x9.pdf" target="_blank" rel="noopener noreferrer" aria-label="백엔드 기술 포트폴리오 PDF 미리보기 (새 탭)">백엔드 기술 포트폴리오</a>
-            <p class="document-description">서버 개발 경험과 주요 기술적 의사결정</p>
-            <p class="document-meta">PDF · 289 KB</p>
-          </div>
-          <a class="document-download" href="./files/portfolio-backend-16x9.pdf" download="portfolio-backend-16x9.pdf" aria-label="백엔드 기술 포트폴리오 PDF 다운로드">다운로드</a>
-        </li>
-        <li class="document-item">
-          <div class="document-info">
-            <a class="document-title" href="./files/portfolio-esd-16x9.pdf" target="_blank" rel="noopener noreferrer" aria-label="ESD 프로젝트 포트폴리오 PDF 미리보기 (새 탭)">ESD 프로젝트 포트폴리오</a>
-            <p class="document-description">문제 해결 과정과 설계·구현 상세</p>
-            <p class="document-meta">PDF · 289 KB</p>
-          </div>
-          <a class="document-download" href="./files/portfolio-esd-16x9.pdf" download="portfolio-esd-16x9.pdf" aria-label="ESD 프로젝트 포트폴리오 PDF 다운로드">다운로드</a>
-        </li>
       </ul>
-      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <div class="viewer">
+        <object data="./resume.pdf#view=FitH" type="application/pdf" aria-label="이력서 PDF 미리보기">
+          <p class="viewer-fallback">이 브라우저에서는 PDF 미리보기를 지원하지 않습니다. <a href="./resume.pdf" target="_blank" rel="noopener noreferrer">새 탭에서 열기</a></p>
+        </object>
+      </div>
     </section>
   </main>
-  <script>
-    "use strict";
-    const base = new URL("./", document.baseURI);
-    const byId = (id) => document.getElementById(id);
-
-    function fileURL(path) {
-      if (!/^(resume\.pdf|files\/[A-Za-z0-9._-]+\.pdf|application\.zip)$/.test(path)) {
-        throw new Error("올바르지 않은 문서 경로입니다.");
-      }
-      return new URL(path, base).href;
-    }
-
-    function formatSize(bytes) {
-      return bytes < 1024 * 1024
-        ? Math.round(bytes / 1024) + " KB"
-        : (bytes / (1024 * 1024)).toFixed(1) + " MB";
-    }
-
-    function renderDocuments(documents) {
-      const list = document.createDocumentFragment();
-      for (const doc of documents) {
-        const item = document.createElement("li");
-        item.className = "document-item";
-        const info = document.createElement("div");
-        info.className = "document-info";
-
-        const title = document.createElement("a");
-        title.className = "document-title";
-        title.textContent = doc.title;
-        title.href = fileURL(doc.path);
-        title.target = "_blank";
-        title.rel = "noopener noreferrer";
-        title.setAttribute("aria-label", doc.title + " PDF 미리보기 (새 탭)");
-
-        const description = document.createElement("p");
-        description.className = "document-description";
-        description.textContent = doc.description || "PDF 문서";
-
-        const meta = document.createElement("p");
-        meta.className = "document-meta";
-        meta.textContent = "PDF · " + formatSize(doc.size_bytes);
-
-        const download = document.createElement("a");
-        download.className = "document-download";
-        download.textContent = "다운로드";
-        download.href = fileURL(doc.path);
-        download.download = doc.path.split("/").pop();
-        download.setAttribute("aria-label", doc.title + " PDF 다운로드");
-
-        info.append(title, description, meta);
-        item.append(info, download);
-        list.append(item);
-      }
-      byId("document-list").replaceChildren(list);
-    }
-
-    async function initialize() {
-      try {
-        const response = await fetch(new URL("manifest.json", base), { cache: "no-store" });
-        if (!response.ok) throw new Error("최신 목록을 불러오지 못했습니다.");
-        const manifest = await response.json();
-        if (manifest.schema_version !== 1 || !Array.isArray(manifest.documents) ||
-            !manifest.documents.length || manifest.bundle?.path !== "application.zip") {
-          throw new Error("문서 목록 형식이 올바르지 않습니다.");
-        }
-        for (const doc of manifest.documents) {
-          fileURL(doc.path);
-          if (typeof doc.title !== "string" || !doc.title ||
-              !Number.isSafeInteger(doc.size_bytes) || doc.size_bytes < 1 ||
-              (doc.description !== undefined && typeof doc.description !== "string")) {
-            throw new Error("문서 목록 데이터가 올바르지 않습니다.");
-          }
-        }
-
-        renderDocuments(manifest.documents);
-        byId("download-all").href = fileURL(manifest.bundle.path);
-        byId("document-total").textContent = "PDF " + manifest.documents.length + "개";
-        const date = new Date(manifest.updated_at);
-        if (!Number.isNaN(date.getTime())) {
-          const formatted = new Intl.DateTimeFormat("ko-KR", {
-            year: "numeric", month: "2-digit", day: "2-digit", timeZone: "Asia/Seoul"
-          }).format(date);
-          byId("updated-at").textContent = "최종 업데이트: " + formatted;
-        }
-      } catch (error) {
-        console.error(error);
-        byId("status").textContent = "최신 문서 목록을 확인할 수 없어 기본 다운로드 링크를 표시합니다.";
-      }
-    }
-    initialize();
-  </script>
 </body>
 </html>
